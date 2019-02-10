@@ -18,7 +18,7 @@
 		    /*background-image: url(images/background.png);  Путь к фоновому изображению */
 		    background-attachment: fixed; /* Фиксируем фон веб-страницы */
 			background-position: center center;
-			background-color:oldlace;
+			background-color:rgb(233, 236, 240);
 		   }
 		
 		</style>
@@ -44,27 +44,86 @@
 					  <a class="nav-link" href="#">Волонтерства</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link" href="#">Все свалки</a>
-					</li>
-					<li class="nav-item">
 					  <a class="nav-link" href="#">События свалок</a>
 					</li>
-					<li class="nav-item dropdown">
-					  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Действие со свалкой
-					  </a>
-					  <div class="dropdown-menu  bg-dark" style="color: white;" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item  bg-dark" style="color: white;" href="#">Добавить свалку</a>
-						<a class="dropdown-item  bg-dark" style="color: white;" href="#">Редактировать свалку</a>
-					  </div>
-					</li>
+					<button type="button" class="btn btn-primary btn-sm btn-menu admin" data-toggle="modal" data-target="#formModal">Добавить свалку</button>
 				  </ul>
 				</div>
 		</nav>
+
+		<!-- Modal -->
+		<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Добавление свалку</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="nameDump">Название свалки</label>
+								<input type="text" class="form-control" id="nameDump" placeholder="Большая свалка" />
+							</div>
+							<div class="form-group">
+								<label for="shortDesc">Краткое описание свалки</label>
+								<input type="text" class="form-control" id="shortDesc" placeholder="Стоит со вторника" />
+							</div>
+							
+							<div class="form-group">
+								<label for="fullDesc">Полное описание</label>
+								<textarea class="form-control" id="fullDesc" rows="3"></textarea></div>
+								<hr/>
+								<div class="form-group" style="margin-bottom:0;">
+									<div>
+										<button type="button" class="btn btn-info btn-sm">Выбрать фотографии</button>
+									</div>
+									<div class="row">
+										<div class="col-lg-3 view-type">
+											Ваши фотографии:
+										</div>
+										<div class="col interests">
+											<div class="card-columns">
+												<div class="card" style="min-width: 9rem;">
+													<img src="images/dump11.jpg" class="card-img-top" alt="images/dump1.jpg">
+													<button type="button" class="btn btn-danger btn-block">Удалить фотографию</button>
+												</div>
+												<div class="card" style="min-width: 9rem;">
+													<img src="images/dump12.jpg" class="card-img-top" alt="images/dump1.jpg">
+													<button type="button" class="btn btn-danger btn-block">Удалить фотографию</button>
+												</div>
+												<div class="card" style="min-width: 9rem;">
+													<img src="images/dump13.jpg" class="card-img-top" alt="images/dump1.jpg">
+													<button type="button" class="btn btn-danger btn-block">Удалить фотографию</button>
+												</div>
+												<div class="card" style="min-width: 9rem;">
+													<img src="images/dump14.jpg" class="card-img-top" alt="images/dump1.jpg">
+													<button type="button" class="btn btn-danger btn-block">Удалить фотографию</button>
+												</div>
+												<div class="card" style="min-width: 9rem;">
+													<img src="images/dump15.jpg" class="card-img-top" alt="images/dump1.jpg">
+													<button type="button" class="btn btn-danger btn-block">Удалить фотографию</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+						<button type="button" class="btn btn-primary">Добавить свалку</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="jumbotron">
 			<h1 class="display-4  text-center pt-2">Портал о незаконных свалках</h1>
 			<h3 class="text-center"><small class="text-muted text-center">В России перерабатывается только 4% мусора.</small></h3>
-			<hr class="text-center  shadow-lg" width="50%" size="2" color="gray" />
+			<hr class="my-4">
 			<h5 class="text-center pt-2" width="75%">Пишите о незаконных свалках, сообщайте в органы власти, учавствуйте в волонтерских уборках, отслеживайте события свалок.
 				Да прибудет с нами чистота.
 			</h5>
@@ -73,36 +132,57 @@
 				<div class="card-columns" style="display: inline-block">
 
 
-					<div class="card bg-light border-secondary text-center">
+					<div class="card bg-light border-secondary text-center"  style="min-width: 15rem;">
 						<img src="images/dump1.jpg" class="card-img-top " alt="images/dump1.jpg">
 						<div class="card-body ">
 							<h5 class="card-title">Главная свалка Барнуала</h5>
 							<p class="card-text">Данная свалка была образована уже лет 10 назад и с тех пор ее никто не прибирал...</p>
-							<a href="openDump.html" class="btn btn-primary ">Открыть польностью</a>
+							<div class="position">Заведующий кафедрой, профессор</div>
+							<a href="openDump.html" class="btn btn-info btn-sm btn-card">Открыть польностью</a>
+							
+							<div class="actions admin">
+								<a href="editDump.html" class="btn btn-primary btn-sm btn-card">Изменить</a>
+								<a href="openDump.html" class="btn btn-danger btn-sm btn-card">Удалить</a>
+							</div>
 						</div>
 					</div>
-					<div class="card bg-light border-secondary text-center">
+					<div class="card bg-light border-secondary text-center" style="min-width: 15rem;">
 						<img src="images/dump2.jpg" class="card-img-top " alt="images/dump1.jpg">
 						<div class="card-body ">
 							<h5 class="card-title">Это до сих пор не убрали</h5>
 							<p class="card-text">Как люди ходят мимо этого...</p>
-							<a href="openDump.html" class="btn btn-primary ">Открыть польностью</a>
+							<a href="openDump.html" class="btn btn-info btn-sm btn-card">Открыть польностью</a>
+							
+							<div class="actions admin">
+								<a href="editDump.html" class="btn btn-primary btn-sm btn-card">Изменить</a>
+								<a href="openDump.html" class="btn btn-danger btn-sm btn-card">Удалить</a>
+							</div>
 						</div>	
 					</div>
-					<div class="card bg-light border-secondary text-center">
+					<div class="card bg-light border-secondary text-center" style="min-width: 15rem;">
 						<img src="images/dump3.jpg" class="card-img-top " alt="images/dump1.jpg">
 						<div class="card-body ">
 							<h5 class="card-title">Вонючая гора</h5>
 							<p class="card-text">Убирали раз 10, но опять образуется...</p>
-							<a href="openDump.html" class="btn btn-primary ">Открыть польностью</a>
+							<a href="openDump.html" class="btn btn-info btn-sm btn-card">Открыть польностью</a>
+							
+							<div class="actions admin">
+								<a href="editDump.html" class="btn btn-primary btn-sm btn-card">Изменить</a>
+								<a href="openDump.html" class="btn btn-danger btn-sm btn-card">Удалить</a>
+							</div>
 						</div>
 					</div>
-					<div class="card bg-light border-secondary text-center">
+					<div class="card bg-light border-secondary text-center" style="min-width: 15rem;">
 						<img src="images/dump4.jpg" class="card-img-top" alt="images/dump1.jpg">
 						<div class="card-body">
 							<h5 class="card-title">Все беды России отражены здесь</h5>
 							<p class="card-text">Десятки людей выросли у умерли а она все стоит...</p>
-							<a href="openDump.html" class="btn btn-primary ">Открыть польностью</a>
+							<a href="openDump.html" class="btn btn-info btn-sm btn-card">Открыть польностью</a>
+							
+							<div class="actions admin">
+								<a href="editDump.html" class="btn btn-primary btn-sm btn-card">Изменить</a>
+								<a href="openDump.html" class="btn btn-danger btn-sm btn-card">Удалить</a>
+							</div>
 						</div>
 					</div>
 
